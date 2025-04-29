@@ -1,55 +1,44 @@
-@import "tailwindcss";
+// app/layout.tsx
 
-/* 🌌 Thème violet sombre global */
-body {
-  background-color: #6b21a8; /* Violet profond */
-  color: white; /* Texte lisible sur fond sombre */
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth; /* Scroll fluide */
-}
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 
-/* Pour éviter des débordements */
-html {
-  overflow-x: hidden;
-}
+// Fonts
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
 
-/* Titres globaux */
-h1, h2, h3, h4, h5 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  margin-top: 0;
-}
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 
-/* Liens par défaut */
-a {
-  color: inherit;
-  text-decoration: none;
-}
+// Metadata
+export const metadata: Metadata = {
+  title: "L'Œil de l'IA",
+  description:
+    "Testez votre capacité à reconnaître une œuvre humaine face à une création par intelligence artificielle.",
+};
 
-/* Boutons globaux */
-button {
-  font-family: Arial, Helvetica, sans-serif;
-  cursor: pointer;
-}
-
-/* Images */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Responsive - Ajustement général pour mobile */
-@media (max-width: 768px) {
-  body {
-    font-size: 0.95rem;
-  }
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 2rem;
-  }
+// Layout principal
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="fr">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={metadata.description || ""} />
+        <title>{metadata.title}</title>
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
 }

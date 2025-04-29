@@ -56,8 +56,8 @@ export default function QuizPage() {
     "Les émotions complexes sont très mal retranscrites par l'IA."
   ];
 
-  // QUESTIONS
-  const normalQuestions: NormalQuestion[] = [
+  // QUESTIONS — ordre fixe
+  const questions: Question[] = [
     { type: "normal", realImg: "/images/Vraieoeuvre1.png", aiImg: "/images/Fausseoeuvre1.png", isRealLeft: true },
     { type: "normal", realImg: "/images/Vraieoeuvre2.png", aiImg: "/images/Fausseoeuvre2.png", isRealLeft: false },
     { type: "normal", realImg: "/images/Vraieoeuvre3.png", aiImg: "/images/Fausseoeuvre3.png", isRealLeft: true },
@@ -65,33 +65,19 @@ export default function QuizPage() {
     { type: "normal", realImg: "/images/Vraieoeuvre5.png", aiImg: "/images/Fausseoeuvre5.png", isRealLeft: true },
     { type: "normal", realImg: "/images/Vraieoeuvre6.png", aiImg: "/images/Fausseoeuvre6.png", isRealLeft: false },
     { type: "normal", realImg: "/images/Vraieoeuvre7.png", aiImg: "/images/Fausseoeuvre7.png", isRealLeft: true },
-  ];
-
-  const specialQuestions: SpecialQuestion[] = [
     { type: "special", img: "/images/VraiSpeciale1.png", isReal: true },
     { type: "special", img: "/images/VraiSpeciale2.png", isReal: true },
     { type: "special", img: "/images/FauxSpeciale1.png", isReal: false },
   ];
 
-  const questions: Question[] = [...normalQuestions, ...specialQuestions];
-
-  // FONCTIONS
-  const getRandomFunFact = () => {
-    return funFacts[Math.floor(Math.random() * funFacts.length)];
-  };
-
-  const getRandomArtip = () => {
-    return artips[Math.floor(Math.random() * artips.length)];
-  };
-
   const handleAnswer = (isCorrect: boolean) => {
     setIsCorrectAnswer(isCorrect);
     if (isCorrect) {
-      setScore(prev => prev + 1);
-      setFeedback(getRandomFunFact());
+      setScore((prev) => prev + 1);
+      setFeedback(funFacts[Math.floor(Math.random() * funFacts.length)]);
       setFeedbackType("funfact");
     } else {
-      setFeedback(getRandomArtip());
+      setFeedback(artips[Math.floor(Math.random() * artips.length)]);
       setFeedbackType("artip");
     }
     setAnswered(true);
@@ -158,11 +144,9 @@ export default function QuizPage() {
           {answered && (
             <>
               <div className="feedback fade-in">
-                {isCorrectAnswer !== null && (
-                  <div style={{ color: isCorrectAnswer ? "#22c55e" : "#ef4444", fontWeight: "bold", fontSize: "1.5rem", marginBottom: "1rem" }}>
-                    {isCorrectAnswer ? "✅ Bonne réponse !" : "❌ Mauvaise réponse."}
-                  </div>
-                )}
+                <div style={{ color: isCorrectAnswer ? "#22c55e" : "#ef4444", fontWeight: "bold", fontSize: "1.5rem", marginBottom: "1rem" }}>
+                  {isCorrectAnswer ? "✅ Bonne réponse !" : "❌ Mauvaise réponse."}
+                </div>
                 <strong>{feedbackType === "funfact" ? "FUN FACT :" : "ARTIPS :"}</strong> {feedback}
               </div>
               <div className="nextButtonContainer">
@@ -180,7 +164,6 @@ export default function QuizPage() {
             {score >= 8 && score <= 9 && "Très bien joué ! Ton œil est presque infaillible."}
             {score === 10 && "Parfait ! Tu es un expert de l'art face à l'IA !"}
           </p>
-
           <div className="buttonsFinal">
             <button className="startButton" onClick={restartQuiz}>🔄 Rejouer</button>
             <Link href="/remerciements">
@@ -190,7 +173,6 @@ export default function QuizPage() {
         </section>
       )}
 
-      {/* CSS */}
       <style jsx>{`
         html, body {
           margin: 0;
@@ -329,8 +311,6 @@ export default function QuizPage() {
           background: linear-gradient(to right, #8b5cf6, #a78bfa);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          margin-bottom: 2rem;
-          text-align: center;
         }
         .resultComment {
           font-size: 1.5rem;
@@ -341,8 +321,6 @@ export default function QuizPage() {
           from { opacity: 0; }
           to { opacity: 1; }
         }
-
-        /* Responsive mobile */
         @media (max-width: 600px) {
           .quizImage {
             width: 80%;
@@ -354,14 +332,12 @@ export default function QuizPage() {
           .startButton {
             width: 80%;
           }
-          .nextButtonContainer {
-            text-align: center;
-          }
         }
       `}</style>
     </main>
   );
 }
+
 
 
 

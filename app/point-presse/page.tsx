@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export default function PressPage() {
   const cardsRef = useRef<HTMLAnchorElement[]>([]);
@@ -104,13 +104,12 @@ export default function PressPage() {
               <img src={article.image} alt={article.title} className="articleImage" />
               <h2>{article.title}</h2>
               <p>{article.description}</p>
-              <span className="source">Source: Voir article</span>
+              <span className="source">Source : Voir article</span>
             </a>
           ))}
         </div>
       </section>
 
-      {/* STYLE CSS COMPLET */}
       <style jsx>{`
         html, body {
           margin: 0;
@@ -143,21 +142,18 @@ export default function PressPage() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           margin-bottom: 3rem;
-          text-align: center;
         }
         .articlesGrid {
           display: flex;
           flex-direction: column;
-          align-items: center;
           gap: 2rem;
-          margin-top: 3rem;
+          align-items: center;
         }
         .articleCard {
           background: rgba(255, 255, 255, 0.1);
           width: 80%;
           padding: 2rem;
           border-radius: 20px;
-          text-align: center;
           text-decoration: none;
           color: white;
           transition: transform 0.3s;
@@ -168,10 +164,9 @@ export default function PressPage() {
         }
         .articleImage {
           width: 100%;
-          height: auto;
           max-height: 250px;
-          border-radius: 12px;
           object-fit: cover;
+          border-radius: 12px;
           margin-bottom: 1rem;
         }
         .articleCard h2 {
@@ -180,14 +175,13 @@ export default function PressPage() {
         }
         .articleCard p {
           font-size: 1.2rem;
-          margin-bottom: 1rem;
+          margin-bottom: 0.8rem;
         }
         .source {
           font-size: 0.9rem;
           color: #d1d5db;
         }
 
-        /* Responsive Mobile */
         @media (max-width: 600px) {
           .pressTitle {
             font-size: 2.5rem;
@@ -207,5 +201,6 @@ export default function PressPage() {
     </main>
   );
 }
+
 
 

@@ -21,7 +21,7 @@ export default function ThanksPage() {
       });
     };
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Appel initial
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -43,7 +43,7 @@ export default function ThanksPage() {
           <p>Amandine B. — Petite Fusée, illustration numérique, avril 2025</p>
           <p>Alexandre S. — Kuroo (personnage de Haikyuu), illustration</p>
           <p>Martine GJINI — Le marcheur (Contact : gjinimartine@gmail.com)</p>
-          <p>Amandine B. — Mer de la Côte d’Azur, photographie, novembre 2024</p>
+          <p>Amandine B. — Mer de la Côte d'Azur, photographie, novembre 2024</p>
           <p>Alexandre S. — Suguru (personnage de Jujutsu Kaisen), illustration</p>
           <p>Durand Théo — Cherry, illustration numérique, avril 2025</p>
           <p>Martine GJINI — Nu</p>
@@ -51,8 +51,8 @@ export default function ThanksPage() {
 
         <div className="thanksBlock" ref={(el) => (sectionsRef.current[1] = el!)}>
           <h2>Encadrement</h2>
-          <p>Merci à Madame Eynaud, professeure de projet entrepreneurial à l’IAE de Saint-Étienne,</p>
-          <p>ainsi qu’à Marie-Charlotte Julia, notre tutrice, pour leurs conseils et leur accompagnement précieux.</p>
+          <p>Merci à Madame Eynaud, professeure de projet entrepreneurial à l'IAE de Saint-Étienne,</p>
+          <p>ainsi qu'à Marie-Charlotte Julia, notre tutrice, pour leurs conseils et leur accompagnement précieux.</p>
         </div>
 
         <div className="thanksBlock" ref={(el) => (sectionsRef.current[2] = el!)}>
@@ -63,7 +63,7 @@ export default function ThanksPage() {
         </div>
 
         <div className="thanksBlock" ref={(el) => (sectionsRef.current[3] = el!)}>
-          <h2>Réflexion sur l’Art</h2>
+          <h2>Réflexion sur l'Art</h2>
           <p>
             La définition officielle du Petit Robert de l'Art est : 
             "Moyen d'obtenir un résultat (par l'effet d'aptitudes naturelles)" ou 
@@ -71,7 +71,7 @@ export default function ThanksPage() {
           </p>
           <p>
             Pourtant, l'art est bien plus vaste : l'esthétique, le laid, qui peut être artiste ?
-            L’art dépend de chacun : des goûts, de l'âge, de l'éducation... autant de réponses que d'individus.
+            L'art dépend de chacun : des goûts, de l'âge, de l'éducation... autant de réponses que d'individus.
           </p>
         </div>
 
@@ -167,7 +167,6 @@ export default function ThanksPage() {
           background: #1d4ed8;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 600px) {
           .thanksTitle {
             font-size: 2.8rem;
@@ -187,4 +186,5 @@ export default function ThanksPage() {
     </main>
   );
 }
+
 
