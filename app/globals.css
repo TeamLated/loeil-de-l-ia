@@ -1,44 +1,70 @@
-// app/layout.tsx
+:root {
+  --font-geist-sans: 'Geist', sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
+}
 
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+/* Réinitialisation de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-// Fonts
-const geistSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
+/* Structure de base */
+html,
+body {
+  font-family: var(--font-geist-sans);
+  background: #6b21a8; /* Fond violet sombre */
+  color: white;
+  scroll-behavior: smooth;
+}
 
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-});
+/* Menu hamburger */
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-// Metadata
-export const metadata: Metadata = {
-  title: "L'Œil de l'IA",
-  description:
-    "Testez votre capacité à reconnaître une œuvre humaine face à une création par intelligence artificielle.",
-};
+.bar {
+  width: 30px;
+  height: 4px;
+  background: white;
+  margin: 5px 0;
+}
 
-// Layout principal
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="fr">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content={metadata.description || ""} />
-        <title>{metadata.title}</title>
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-      </body>
-    </html>
-  );
+/* Menu déroulant */
+.menuOverlay {
+  background: linear-gradient(135deg, #9333ea, #22c55e, #2563eb, #ef4444, #facc15);
+  padding: 1rem;
+  border-radius: 12px;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 220px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.menuOverlay ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menuOverlay li {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Responsive général */
+@media screen and (max-width: 768px) {
+  .menuOverlay {
+    width: 90%;
+  }
+
+  .menuOverlay li {
+    font-size: 1.2rem;
+  }
 }

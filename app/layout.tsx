@@ -4,23 +4,25 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-// Importation des polices Geist
+// Fonts
 const geistSans = Geist({
-  variable: "--font-geist-sans",
   subsets: ["latin"],
+  variable: "--font-geist-sans",
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
+  variable: "--font-geist-mono",
 });
 
-// Métadonnées pour le SEO
+// Metadata
 export const metadata: Metadata = {
   title: "L'Œil de l'IA",
-  description: "Testez votre capacité à reconnaître une œuvre humaine face à une création par intelligence artificielle.",
+  description:
+    "Testez votre capacité à reconnaître une œuvre humaine face à une création par intelligence artificielle.",
 };
 
+// Layout principal
 export default function RootLayout({
   children,
 }: {
@@ -29,10 +31,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charSet="UTF-8" />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={metadata.description || ""} />
         <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
@@ -40,4 +42,3 @@ export default function RootLayout({
     </html>
   );
 }
-
