@@ -1,6 +1,6 @@
 :root {
-  --font-geist-sans: 'Geist', sans-serif;
-  --font-geist-mono: 'Geist Mono', monospace;
+  --font-geist-sans: "Geist", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
 }
 
 /* Réinitialisation de base */
@@ -35,7 +35,14 @@ body {
 
 /* Menu déroulant */
 .menuOverlay {
-  background: linear-gradient(135deg, #9333ea, #22c55e, #2563eb, #ef4444, #facc15);
+  background: linear-gradient(
+    135deg,
+    #9333ea,
+    #22c55e,
+    #2563eb,
+    #ef4444,
+    #facc15
+  );
   padding: 1rem;
   border-radius: 12px;
   position: absolute;

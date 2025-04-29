@@ -24,6 +24,7 @@ export default function PressPage() {
       });
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -106,7 +107,7 @@ export default function PressPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="articleCard"
-              ref={(el) => el && (cardsRef.current[index] = el)}
+              ref={(el) => (cardsRef.current[index] = el!)}
             >
               <img
                 src={article.image}
@@ -193,7 +194,6 @@ export default function PressPage() {
           font-size: 0.9rem;
           color: #d1d5db;
         }
-
         @media (max-width: 600px) {
           .pressTitle {
             font-size: 2.5rem;

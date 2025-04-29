@@ -39,83 +39,62 @@ export default function ThanksPage() {
       <section className="thanksSection">
         <h1 className="thanksTitle">Remerciements</h1>
 
-        <div
-          className="thanksBlock"
-          ref={(el) => (sectionsRef.current[0] = el!)}
-        >
-          <h2>Artistes</h2>
-          <p>Nous tenons à remercier chaleureusement :</p>
-          <p>N.L. — Fleurs, photographie</p>
-          <p>Amandine B. — Petite Fusée, illustration numérique, avril 2025</p>
-          <p>Alexandre S. — Kuroo (personnage de Haikyuu), illustration</p>
-          <p>Martine GJINI — Le marcheur (Contact : gjinimartine@gmail.com)</p>
-          <p>
-            Amandine B. — Mer de la Côte d'Azur, photographie, novembre 2024
-          </p>
-          <p>
-            Alexandre S. — Suguru (personnage de Jujutsu Kaisen), illustration
-          </p>
-          <p>Durand Théo — Cherry, illustration numérique, avril 2025</p>
-          <p>Martine GJINI — Nu</p>
-        </div>
-
-        <div
-          className="thanksBlock"
-          ref={(el) => (sectionsRef.current[1] = el!)}
-        >
-          <h2>Encadrement</h2>
-          <p>
-            Merci à Madame Eynaud, professeure de projet entrepreneurial à l'IAE
-            de Saint-Étienne,
-          </p>
-          <p>
-            ainsi qu'à Marie-Charlotte Julia, notre tutrice, pour leurs conseils
-            et leur accompagnement précieux.
-          </p>
-        </div>
-
-        <div
-          className="thanksBlock"
-          ref={(el) => (sectionsRef.current[2] = el!)}
-        >
-          <h2>Participants</h2>
-          <p>Merci à tous les artistes et étudiants interviewés,</p>
-          <p>aux licences arts de Saint-Étienne pour leur aide,</p>
-          <p>et à tous ceux qui ont répondu à notre questionnaire.</p>
-        </div>
-
-        <div
-          className="thanksBlock"
-          ref={(el) => (sectionsRef.current[3] = el!)}
-        >
-          <h2>Réflexion sur l'Art</h2>
-          <p>
-            La définition officielle du Petit Robert de l'Art est : "Moyen
-            d'obtenir un résultat (par l'effet d'aptitudes naturelles)" ou
-            "Ensemble de connaissances et de règles d'action, dans un domaine
-            particulier".
-          </p>
-          <p>
-            Pourtant, l'art est bien plus vaste : l'esthétique, le laid, qui
-            peut être artiste ? L'art dépend de chacun : des goûts, de l'âge, de
-            l'éducation... autant de réponses que d'individus.
-          </p>
-        </div>
-
-        <div
-          className="thanksBlock"
-          ref={(el) => (sectionsRef.current[4] = el!)}
-        >
-          <h2>Mot de fin</h2>
-          <p>
-            Aujourd'hui, en faisant ce test, vous ne trouverez pas une vérité
-            absolue sur la place de l'IA dans l'art.
-          </p>
-          <p>
-            Vous trouverez des pistes, des critiques, des ouvertures. À vous de
-            juger. Mais surtout : ne vous fermez pas au reste...
-          </p>
-        </div>
+        {[
+          {
+            title: "Artistes",
+            content: [
+              "Nous tenons à remercier chaleureusement :",
+              "N.L. — Fleurs, photographie",
+              "Amandine B. — Petite Fusée, illustration numérique, avril 2025",
+              "Alexandre S. — Kuroo (personnage de Haikyuu), illustration",
+              "Martine GJINI — Le marcheur (Contact : gjinimartine@gmail.com)",
+              "Amandine B. — Mer de la Côte d'Azur, photographie, novembre 2024",
+              "Alexandre S. — Suguru (personnage de Jujutsu Kaisen), illustration",
+              "Durand Théo — Cherry, illustration numérique, avril 2025",
+              "Martine GJINI — Nu",
+            ],
+          },
+          {
+            title: "Encadrement",
+            content: [
+              "Merci à Madame Eynaud, professeure de projet entrepreneurial à l'IAE de Saint-Étienne,",
+              "ainsi qu'à Marie-Charlotte Julia, notre tutrice, pour leurs conseils et leur accompagnement précieux.",
+            ],
+          },
+          {
+            title: "Participants",
+            content: [
+              "Merci à tous les artistes et étudiants interviewés,",
+              "aux licences arts de Saint-Étienne pour leur aide,",
+              "et à tous ceux qui ont répondu à notre questionnaire.",
+            ],
+          },
+          {
+            title: "Réflexion sur l'Art",
+            content: [
+              "La définition officielle du Petit Robert de l'Art est : \"Moyen d'obtenir un résultat (par l'effet d'aptitudes naturelles)\" ou \"Ensemble de connaissances et de règles d'action, dans un domaine particulier\".",
+              "Pourtant, l'art est bien plus vaste : l'esthétique, le laid, qui peut être artiste ? L'art dépend de chacun : des goûts, de l'âge, de l'éducation... autant de réponses que d'individus.",
+            ],
+          },
+          {
+            title: "Mot de fin",
+            content: [
+              "Aujourd'hui, en faisant ce test, vous ne trouverez pas une vérité absolue sur la place de l'IA dans l'art.",
+              "Vous trouverez des pistes, des critiques, des ouvertures. À vous de juger. Mais surtout : ne vous fermez pas au reste...",
+            ],
+          },
+        ].map((section, index) => (
+          <div
+            key={index}
+            className="thanksBlock"
+            ref={(el) => (sectionsRef.current[index] = el!)}
+          >
+            <h2>{section.title}</h2>
+            {section.content.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        ))}
 
         <div className="thanksButtonContainer">
           <Link href="/point-presse">
@@ -124,7 +103,6 @@ export default function ThanksPage() {
         </div>
       </section>
 
-      {/* STYLE */}
       <style jsx>{`
         html,
         body {

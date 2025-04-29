@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// TYPES
+// Types
 type NormalQuestion = {
   type: "normal";
   realImg: string;
@@ -19,7 +19,6 @@ type SpecialQuestion = {
 
 type Question = NormalQuestion | SpecialQuestion;
 
-// COMPOSANT PRINCIPAL
 export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -31,12 +30,11 @@ export default function QuizPage() {
     null
   );
 
-  // DONNÉES
   const funFacts = [
-    "En 2018, un tableau généré par IA a été vendu pour 432 500$ (Portrait d'Edmond de Belamy).",
-    "La génération d'un Starter Pack IA consomme plusieurs litres d'eau.",
+    "En 2018, un tableau généré par IA a été vendu pour 432 500$ (Portrait d’Edmond de Belamy).",
+    "La génération d’un Starter Pack IA consomme plusieurs litres d’eau.",
     "Hayao Miyazaki dénonçait dès 2013 les dangers de 'machines qui dessinent'.",
-    "ChatGPT traite plus d'un milliard de requêtes par jour pour 400M d'utilisateurs.",
+    "ChatGPT traite plus d’un milliard de requêtes par jour pour 400M d’utilisateurs.",
     "D'ici 2030, la consommation d'énergie des datas centers va doubler.",
     "Une vraie photo d'un flamant rose a gagné un concours car elle semblait générée par IA.",
     "Boris Eldagsen a gagné un concours photo avec une œuvre IA mais a refusé la récompense.",
@@ -58,7 +56,6 @@ export default function QuizPage() {
     "Les émotions complexes sont très mal retranscrites par l'IA.",
   ];
 
-  // QUESTIONS — ordre fixe
   const questions: Question[] = [
     {
       type: "normal",
@@ -108,21 +105,21 @@ export default function QuizPage() {
   ];
 
   const handleAnswer = (isCorrect: boolean) => {
+    if (answered) return;
     setIsCorrectAnswer(isCorrect);
-    if (isCorrect) {
-      setScore((prev) => prev + 1);
-      setFeedback(funFacts[Math.floor(Math.random() * funFacts.length)]);
-      setFeedbackType("funfact");
-    } else {
-      setFeedback(artips[Math.floor(Math.random() * artips.length)]);
-      setFeedbackType("artip");
-    }
+    setFeedback(
+      isCorrect
+        ? funFacts[Math.floor(Math.random() * funFacts.length)]
+        : artips[Math.floor(Math.random() * artips.length)]
+    );
+    setFeedbackType(isCorrect ? "funfact" : "artip");
+    if (isCorrect) setScore((prev) => prev + 1);
     setAnswered(true);
   };
 
   const nextQuestion = () => {
     if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion(currentQuestion + 1);
+      setCurrentQuestion((prev) => prev + 1);
       setAnswered(false);
       setIsCorrectAnswer(null);
       setFeedback("");
@@ -132,12 +129,8 @@ export default function QuizPage() {
     }
   };
 
-  const restartQuiz = () => {
-    window.location.reload();
-  };
-
+  const restartQuiz = () => window.location.reload();
   const current = questions[currentQuestion];
-
   return (
     <main className="quiz">
       <header className="quizHeader">
@@ -163,13 +156,21 @@ export default function QuizPage() {
                 src={current.isRealLeft ? current.realImg : current.aiImg}
                 alt="Choix gauche"
                 onClick={() => handleAnswer(current.isRealLeft)}
-                className="quizImage"
+                className={`quizImage ${
+                  answered ? (current.isRealLeft ? "correct" : "incorrect") : ""
+                }`}
               />
               <img
                 src={!current.isRealLeft ? current.realImg : current.aiImg}
                 alt="Choix droite"
                 onClick={() => handleAnswer(!current.isRealLeft)}
-                className="quizImage"
+                className={`quizImage ${
+                  answered
+                    ? !current.isRealLeft
+                      ? "correct"
+                      : "incorrect"
+                    : ""
+                }`}
               />
             </div>
           ) : (
@@ -183,12 +184,14 @@ export default function QuizPage() {
                 <button
                   className="choiceButton"
                   onClick={() => handleAnswer(current.isReal)}
+                  disabled={answered}
                 >
                   Vraie œuvre
                 </button>
                 <button
                   className="choiceButton"
                   onClick={() => handleAnswer(!current.isReal)}
+                  disabled={answered}
                 >
                   Œuvre IA
                 </button>
@@ -251,150 +254,82 @@ export default function QuizPage() {
       )}
 
       <style jsx>{`
-        html,
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: Arial, sans-serif;
-          background: linear-gradient(to bottom right, #8b5cf6, #a78bfa);
-          color: white;
+        .quiz {
+          padding: 2rem;
+          max-width: 900px;
+          margin: auto;
           text-align: center;
-          min-height: 100vh;
-          overflow-x: hidden;
         }
         .quizHeader {
-          text-align: left;
-          padding: 1rem;
+          margin-bottom: 2rem;
         }
         .homeButton {
-          background: #facc15;
-          color: #1e1b4b;
-          font-weight: bold;
-          padding: 0.6rem 1.2rem;
+          background: #6d28d9;
+          color: white;
+          padding: 0.8rem 1.2rem;
+          border-radius: 8px;
           border: none;
-          border-radius: 10px;
           font-size: 1rem;
           cursor: pointer;
         }
-        .quizSection {
-          padding: 2rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+        .quizQuestionTitle {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
         }
-        .imagesContainer,
-        .specialImageContainer {
+        .quizSubTitle {
+          font-size: 1.2rem;
+          margin-bottom: 2rem;
+        }
+        .imagesContainer {
           display: flex;
           justify-content: center;
-          align-items: center;
           gap: 2rem;
-          margin-top: 2rem;
-          flex-wrap: wrap;
+          margin-bottom: 2rem;
         }
         .quizImage {
-          width: 280px;
-          border-radius: 10px;
+          width: 45%;
           cursor: pointer;
-          transition: transform 0.3s;
+          transition: transform 0.3s, border 0.3s;
+          border: 5px solid transparent;
+          border-radius: 12px;
         }
         .quizImage:hover {
-          transform: scale(1.05);
+          transform: scale(1.03);
+        }
+        .correct {
+          border-color: #22c55e;
+        }
+        .incorrect {
+          border-color: #ef4444;
+        }
+        .specialImageContainer {
+          margin-bottom: 2rem;
         }
         .specialButtons {
-          margin-top: 1rem;
           display: flex;
-          gap: 2rem;
-          flex-wrap: wrap;
           justify-content: center;
+          gap: 1rem;
+          margin-top: 1.5rem;
         }
         .choiceButton {
-          background: #facc15;
-          color: #1e1b4b;
-          font-weight: bold;
-          padding: 1rem 2rem;
+          padding: 0.8rem 1.5rem;
+          background-color: #4f46e5;
+          color: white;
           border: none;
           border-radius: 10px;
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           cursor: pointer;
-          transition: background 0.3s;
         }
-        .choiceButton:hover {
-          background: #fde68a;
+        .choiceButton:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
         }
         .feedback {
           margin-top: 2rem;
-          padding: 1.2rem;
-          border-radius: 10px;
-          background: rgba(0, 0, 0, 0.5);
-          max-width: 700px;
-          animation: fadeIn 0.8s ease forwards;
-        }
-        .nextButtonContainer {
-          margin-top: 3rem;
-          text-align: center;
-        }
-        .nextButton {
-          background: #22c55e;
-          color: white;
-          font-weight: bold;
-          padding: 1rem 2rem;
-          border: none;
-          border-radius: 10px;
           font-size: 1.2rem;
-          cursor: pointer;
-          transition: background 0.3s;
         }
-        .nextButton:hover {
-          background: #16a34a;
-        }
-        .resultSection {
-          margin-top: 5rem;
-        }
-        .buttonsFinal {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          margin-top: 2rem;
-          align-items: center;
-        }
-        .startButton {
-          background: #facc15;
-          color: #1e1b4b;
-          font-weight: bold;
-          padding: 1rem 2rem;
-          border: none;
-          border-radius: 10px;
-          font-size: 1.2rem;
-          cursor: pointer;
-          transition: background 0.3s;
-        }
-        .startButton:hover {
-          background: #fde68a;
-        }
-        .quizQuestionTitle {
-          font-size: 2.5rem;
-          font-weight: bold;
-          background: linear-gradient(to right, #8b5cf6, #a78bfa);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin-bottom: 1rem;
-        }
-        .quizSubTitle {
-          font-size: 1.8rem;
-          color: #facc15;
-          margin-bottom: 2rem;
-        }
-        .resultTitle {
-          font-size: 3rem;
-          font-weight: bold;
-          background: linear-gradient(to right, #8b5cf6, #a78bfa);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        .resultComment {
-          font-size: 1.5rem;
-          margin-top: 1rem;
-          text-align: center;
+        .fade-in {
+          animation: fadeIn 0.8s ease-in-out;
         }
         @keyframes fadeIn {
           from {
@@ -404,17 +339,42 @@ export default function QuizPage() {
             opacity: 1;
           }
         }
-        @media (max-width: 600px) {
-          .quizImage {
-            width: 80%;
-          }
-          .choiceButton {
-            font-size: 1rem;
-            padding: 0.8rem 1.5rem;
-          }
-          .startButton {
-            width: 80%;
-          }
+        .nextButtonContainer {
+          margin-top: 2rem;
+        }
+        .nextButton {
+          background: #10b981;
+          color: white;
+          padding: 1rem 2rem;
+          font-size: 1.2rem;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        .resultSection {
+          margin-top: 3rem;
+        }
+        .resultTitle {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+        .resultComment {
+          font-size: 1.5rem;
+          margin-bottom: 2rem;
+        }
+        .buttonsFinal {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+        }
+        .startButton {
+          background: #6366f1;
+          color: white;
+          padding: 1rem 2rem;
+          font-size: 1.2rem;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
         }
       `}</style>
     </main>

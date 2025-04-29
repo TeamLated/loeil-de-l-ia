@@ -96,95 +96,36 @@ export default function Home() {
       <section id="explanationSection" className="explanation">
         <h2 className="bigTitle">Pourquoi ce projet ?</h2>
         <div className="cards">
-          {/* Card 1 */}
-          <div
-            ref={(el) => el && (cardsRef.current[0] = el)}
-            className="card purple"
-          >
-            <h3>Notre équipe</h3>
-            <p>
-              Nous sommes une équipe d'étudiants passionnés par l'art, la
-              création visuelle et les technologies émergentes. Si nos parcours
-              personnels sont différents, nous partageons tous une même
-              sensibilité pour l'expression artistique et un intérêt profond
-              pour l'impact de l'intelligence artificielle sur notre société.
-              Face aux innovations impressionnantes permises par les outils
-              génératifs, nous avons ressenti le besoin de questionner la place
-              de l'humain dans la création artistique. Ensemble, nous avons
-              construit ce projet pour sensibiliser le public à la richesse
-              unique de la création humaine, et pour inviter chacun à
-              s'interroger sur ce qui différencie une œuvre née d'une main
-              humaine de celle produite par un algorithme.
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div
-            ref={(el) => el && (cardsRef.current[1] = el)}
-            className="card green"
-          >
-            <h3>Le défi</h3>
-            <p>
-              L'intelligence artificielle est désormais capable de générer des
-              œuvres d'art saisissantes en quelques secondes. Tableaux, dessins,
-              illustrations numériques : tout semble à portée d'algorithme. Ce
-              jeu d'observation n'est pas qu'un simple divertissement : il
-              invite chacun à s'interroger sur les critères qui rendent une
-              œuvre profondément humaine.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div
-            ref={(el) => el && (cardsRef.current[2] = el)}
-            className="card blue"
-          >
-            <h3>Quelques chiffres</h3>
-            <p>
-              60 % des internautes avouent avoir du mal à distinguer une œuvre
-              d'IA d'une œuvre humaine. 2 minutes suffisent en moyenne à une IA
-              pour générer un tableau complexe. +300 œuvres analysées pour
-              construire notre expérience. 5 styles artistiques explorés :
-              impressionnisme, art abstrait, réalisme, surréalisme, art
-              contemporain.
-            </p>
-          </div>
-
-          {/* Card 4 */}
-          <div
-            ref={(el) => el && (cardsRef.current[3] = el)}
-            className="card red"
-          >
-            <h3>Notre mission</h3>
-            <p>
-              Notre mission est double : sensibiliser et valoriser. Nous voulons
-              avant tout sensibiliser aux bouleversements que l'IA provoque dans
-              le monde artistique. Nous souhaitons aussi valoriser la démarche
-              des artistes humains, leur capacité unique à transmettre des
-              émotions, à porter des messages et à ouvrir des débats par leur
-              travail.
-            </p>
-          </div>
-
-          {/* Card 5 */}
-          <div
-            ref={(el) => el && (cardsRef.current[4] = el)}
-            className="card yellow"
-          >
-            <h3>Vous</h3>
-            <p>
-              Vous êtes au centre de notre projet. Que vous soyez amateur d'art,
-              curieux, étudiant, artiste ou passionné de nouvelles technologies,
-              votre regard et vos choix alimentent la réflexion collective sur
-              le rôle de l'humain face aux créations IA. En participant, vous
-              devenez acteur d'un questionnement essentiel pour l'avenir de
-              l'art.
-            </p>
-          </div>
+          {[
+            { title: "Notre équipe", className: "purple", index: 0 },
+            { title: "Le défi", className: "green", index: 1 },
+            { title: "Quelques chiffres", className: "blue", index: 2 },
+            { title: "Notre mission", className: "red", index: 3 },
+            { title: "Vous", className: "yellow", index: 4 },
+          ].map(({ title, className, index }) => (
+            <div
+              key={index}
+              ref={(el) => el && (cardsRef.current[index] = el)}
+              className={`card ${className}`}
+            >
+              <h3>{title}</h3>
+              <p>
+                {index === 0 &&
+                  "Nous sommes une équipe d'étudiants passionnés par l'art, la création visuelle et les technologies émergentes. Si nos parcours personnels sont différents, nous partageons tous une même sensibilité pour l'expression artistique et un intérêt profond pour l'impact de l'intelligence artificielle sur notre société. Face aux innovations impressionnantes permises par les outils génératifs, nous avons ressenti le besoin de questionner la place de l'humain dans la création artistique. Ensemble, nous avons construit ce projet pour sensibiliser le public à la richesse unique de la création humaine, et pour inviter chacun à s'interroger sur ce qui différencie une œuvre née d'une main humaine de celle produite par un algorithme."}
+                {index === 1 &&
+                  "L'intelligence artificielle est désormais capable de générer des œuvres d'art saisissantes en quelques secondes. Tableaux, dessins, illustrations numériques : tout semble à portée d'algorithme. Ce jeu d'observation n'est pas qu'un simple divertissement : il invite chacun à s'interroger sur les critères qui rendent une œuvre profondément humaine."}
+                {index === 2 &&
+                  "60 % des internautes avouent avoir du mal à distinguer une œuvre d'IA d'une œuvre humaine. 2 minutes suffisent en moyenne à une IA pour générer un tableau complexe. +300 œuvres analysées pour construire notre expérience. 5 styles artistiques explorés : impressionnisme, art abstrait, réalisme, surréalisme, art contemporain."}
+                {index === 3 &&
+                  "Notre mission est double : sensibiliser et valoriser. Nous voulons avant tout sensibiliser aux bouleversements que l'IA provoque dans le monde artistique. Nous souhaitons aussi valoriser la démarche des artistes humains, leur capacité unique à transmettre des émotions, à porter des messages et à ouvrir des débats par leur travail."}
+                {index === 4 &&
+                  "Vous êtes au centre de notre projet. Que vous soyez amateur d'art, curieux, étudiant, artiste ou passionné de nouvelles technologies, votre regard et vos choix alimentent la réflexion collective sur le rôle de l'humain face aux créations IA. En participant, vous devenez acteur d'un questionnement essentiel pour l'avenir de l'art."}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* CSS STYLE */}
       <style jsx>{`
         html,
         body {
@@ -331,7 +272,6 @@ export default function Home() {
           background-color: #facc15;
           color: #1e1b4b;
         }
-
         @media screen and (max-width: 768px) {
           .card {
             width: 95%;
