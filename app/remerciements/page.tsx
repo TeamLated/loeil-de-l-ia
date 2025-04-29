@@ -13,7 +13,10 @@ export default function ThanksPage() {
         const rect = section.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const sectionCenter = rect.top + rect.height / 2;
-        if (sectionCenter > windowHeight / 4 && sectionCenter < (3 * windowHeight) / 4) {
+        if (
+          sectionCenter > windowHeight / 4 &&
+          sectionCenter < (3 * windowHeight) / 4
+        ) {
           section.style.transform = "scale(1.05)";
         } else {
           section.style.transform = "scale(1)";
@@ -36,53 +39,81 @@ export default function ThanksPage() {
       <section className="thanksSection">
         <h1 className="thanksTitle">Remerciements</h1>
 
-        <div className="thanksBlock" ref={(el) => (sectionsRef.current[0] = el!)}>
+        <div
+          className="thanksBlock"
+          ref={(el) => (sectionsRef.current[0] = el!)}
+        >
           <h2>Artistes</h2>
           <p>Nous tenons à remercier chaleureusement :</p>
           <p>N.L. — Fleurs, photographie</p>
           <p>Amandine B. — Petite Fusée, illustration numérique, avril 2025</p>
           <p>Alexandre S. — Kuroo (personnage de Haikyuu), illustration</p>
           <p>Martine GJINI — Le marcheur (Contact : gjinimartine@gmail.com)</p>
-          <p>Amandine B. — Mer de la Côte d'Azur, photographie, novembre 2024</p>
-          <p>Alexandre S. — Suguru (personnage de Jujutsu Kaisen), illustration</p>
+          <p>
+            Amandine B. — Mer de la Côte d'Azur, photographie, novembre 2024
+          </p>
+          <p>
+            Alexandre S. — Suguru (personnage de Jujutsu Kaisen), illustration
+          </p>
           <p>Durand Théo — Cherry, illustration numérique, avril 2025</p>
           <p>Martine GJINI — Nu</p>
         </div>
 
-        <div className="thanksBlock" ref={(el) => (sectionsRef.current[1] = el!)}>
+        <div
+          className="thanksBlock"
+          ref={(el) => (sectionsRef.current[1] = el!)}
+        >
           <h2>Encadrement</h2>
-          <p>Merci à Madame Eynaud, professeure de projet entrepreneurial à l'IAE de Saint-Étienne,</p>
-          <p>ainsi qu'à Marie-Charlotte Julia, notre tutrice, pour leurs conseils et leur accompagnement précieux.</p>
+          <p>
+            Merci à Madame Eynaud, professeure de projet entrepreneurial à l'IAE
+            de Saint-Étienne,
+          </p>
+          <p>
+            ainsi qu'à Marie-Charlotte Julia, notre tutrice, pour leurs conseils
+            et leur accompagnement précieux.
+          </p>
         </div>
 
-        <div className="thanksBlock" ref={(el) => (sectionsRef.current[2] = el!)}>
+        <div
+          className="thanksBlock"
+          ref={(el) => (sectionsRef.current[2] = el!)}
+        >
           <h2>Participants</h2>
           <p>Merci à tous les artistes et étudiants interviewés,</p>
           <p>aux licences arts de Saint-Étienne pour leur aide,</p>
           <p>et à tous ceux qui ont répondu à notre questionnaire.</p>
         </div>
 
-        <div className="thanksBlock" ref={(el) => (sectionsRef.current[3] = el!)}>
+        <div
+          className="thanksBlock"
+          ref={(el) => (sectionsRef.current[3] = el!)}
+        >
           <h2>Réflexion sur l'Art</h2>
           <p>
-            La définition officielle du Petit Robert de l'Art est : 
-            "Moyen d'obtenir un résultat (par l'effet d'aptitudes naturelles)" ou 
-            "Ensemble de connaissances et de règles d'action, dans un domaine particulier".
+            La définition officielle du Petit Robert de l'Art est : "Moyen
+            d'obtenir un résultat (par l'effet d'aptitudes naturelles)" ou
+            "Ensemble de connaissances et de règles d'action, dans un domaine
+            particulier".
           </p>
           <p>
-            Pourtant, l'art est bien plus vaste : l'esthétique, le laid, qui peut être artiste ?
-            L'art dépend de chacun : des goûts, de l'âge, de l'éducation... autant de réponses que d'individus.
+            Pourtant, l'art est bien plus vaste : l'esthétique, le laid, qui
+            peut être artiste ? L'art dépend de chacun : des goûts, de l'âge, de
+            l'éducation... autant de réponses que d'individus.
           </p>
         </div>
 
-        <div className="thanksBlock" ref={(el) => (sectionsRef.current[4] = el!)}>
+        <div
+          className="thanksBlock"
+          ref={(el) => (sectionsRef.current[4] = el!)}
+        >
           <h2>Mot de fin</h2>
           <p>
-            Aujourd'hui, en faisant ce test, vous ne trouverez pas une vérité absolue sur la place de l'IA dans l'art.
+            Aujourd'hui, en faisant ce test, vous ne trouverez pas une vérité
+            absolue sur la place de l'IA dans l'art.
           </p>
           <p>
-            Vous trouverez des pistes, des critiques, des ouvertures. 
-            À vous de juger. Mais surtout : ne vous fermez pas au reste...
+            Vous trouverez des pistes, des critiques, des ouvertures. À vous de
+            juger. Mais surtout : ne vous fermez pas au reste...
           </p>
         </div>
 
@@ -95,7 +126,8 @@ export default function ThanksPage() {
 
       {/* STYLE */}
       <style jsx>{`
-        html, body {
+        html,
+        body {
           margin: 0;
           padding: 0;
           font-family: Arial, sans-serif;
@@ -186,5 +218,3 @@ export default function ThanksPage() {
     </main>
   );
 }
-
-

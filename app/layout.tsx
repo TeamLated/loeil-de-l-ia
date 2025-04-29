@@ -18,7 +18,8 @@ const geistMono = Geist_Mono({
 // Métadonnées exportées proprement (utilisées automatiquement par Next.js)
 export const metadata: Metadata = {
   title: "L'Œil de l'IA",
-  description: "Testez votre capacité à reconnaître une œuvre humaine face à une création par intelligence artificielle.",
+  description:
+    "Testez votre capacité à reconnaître une œuvre humaine face à une création par intelligence artificielle.",
 };
 
 // Layout principal
@@ -29,7 +30,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

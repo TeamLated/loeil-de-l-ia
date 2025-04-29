@@ -27,20 +27,22 @@ export default function QuizPage() {
   const [answered, setAnswered] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [feedback, setFeedback] = useState("");
-  const [feedbackType, setFeedbackType] = useState<"funfact" | "artip" | null>(null);
+  const [feedbackType, setFeedbackType] = useState<"funfact" | "artip" | null>(
+    null
+  );
 
   // DONNÉES
   const funFacts = [
-    "En 2018, un tableau généré par IA a été vendu pour 432 500$ (Portrait d’Edmond de Belamy).",
-    "La génération d’un Starter Pack IA consomme plusieurs litres d’eau.",
+    "En 2018, un tableau généré par IA a été vendu pour 432 500$ (Portrait d'Edmond de Belamy).",
+    "La génération d'un Starter Pack IA consomme plusieurs litres d'eau.",
     "Hayao Miyazaki dénonçait dès 2013 les dangers de 'machines qui dessinent'.",
-    "ChatGPT traite plus d’un milliard de requêtes par jour pour 400M d’utilisateurs.",
+    "ChatGPT traite plus d'un milliard de requêtes par jour pour 400M d'utilisateurs.",
     "D'ici 2030, la consommation d'énergie des datas centers va doubler.",
     "Une vraie photo d'un flamant rose a gagné un concours car elle semblait générée par IA.",
     "Boris Eldagsen a gagné un concours photo avec une œuvre IA mais a refusé la récompense.",
     "L'IA peine à comprendre le mouvement logique dans une armure de jeu vidéo.",
     "Le regard et les mains sont souvent déformés dans les œuvres IA.",
-    "Les galeries IA mélangent souvent plusieurs styles incohérents."
+    "Les galeries IA mélangent souvent plusieurs styles incohérents.",
   ];
 
   const artips = [
@@ -53,18 +55,53 @@ export default function QuizPage() {
     "Plus vous regardez longtemps, plus vous voyez des défauts sur une image IA.",
     "Les contrastes sont souvent mal gérés dans les images IA.",
     "Les personnages secondaires sont souvent monstrueux.",
-    "Les émotions complexes sont très mal retranscrites par l'IA."
+    "Les émotions complexes sont très mal retranscrites par l'IA.",
   ];
 
   // QUESTIONS — ordre fixe
   const questions: Question[] = [
-    { type: "normal", realImg: "/images/Vraieoeuvre1.png", aiImg: "/images/Fausseoeuvre1.png", isRealLeft: true },
-    { type: "normal", realImg: "/images/Vraieoeuvre2.png", aiImg: "/images/Fausseoeuvre2.png", isRealLeft: false },
-    { type: "normal", realImg: "/images/Vraieoeuvre3.png", aiImg: "/images/Fausseoeuvre3.png", isRealLeft: true },
-    { type: "normal", realImg: "/images/Vraieoeuvre4.png", aiImg: "/images/Fausseoeuvre4.png", isRealLeft: false },
-    { type: "normal", realImg: "/images/Vraieoeuvre5.png", aiImg: "/images/Fausseoeuvre5.png", isRealLeft: true },
-    { type: "normal", realImg: "/images/Vraieoeuvre6.png", aiImg: "/images/Fausseoeuvre6.png", isRealLeft: false },
-    { type: "normal", realImg: "/images/Vraieoeuvre7.png", aiImg: "/images/Fausseoeuvre7.png", isRealLeft: true },
+    {
+      type: "normal",
+      realImg: "/images/Vraieoeuvre1.png",
+      aiImg: "/images/Fausseoeuvre1.png",
+      isRealLeft: true,
+    },
+    {
+      type: "normal",
+      realImg: "/images/Vraieoeuvre2.png",
+      aiImg: "/images/Fausseoeuvre2.png",
+      isRealLeft: false,
+    },
+    {
+      type: "normal",
+      realImg: "/images/Vraieoeuvre3.png",
+      aiImg: "/images/Fausseoeuvre3.png",
+      isRealLeft: true,
+    },
+    {
+      type: "normal",
+      realImg: "/images/Vraieoeuvre4.png",
+      aiImg: "/images/Fausseoeuvre4.png",
+      isRealLeft: false,
+    },
+    {
+      type: "normal",
+      realImg: "/images/Vraieoeuvre5.png",
+      aiImg: "/images/Fausseoeuvre5.png",
+      isRealLeft: true,
+    },
+    {
+      type: "normal",
+      realImg: "/images/Vraieoeuvre6.png",
+      aiImg: "/images/Fausseoeuvre6.png",
+      isRealLeft: false,
+    },
+    {
+      type: "normal",
+      realImg: "/images/Vraieoeuvre7.png",
+      aiImg: "/images/Fausseoeuvre7.png",
+      isRealLeft: true,
+    },
     { type: "special", img: "/images/VraiSpeciale1.png", isReal: true },
     { type: "special", img: "/images/VraiSpeciale2.png", isReal: true },
     { type: "special", img: "/images/FauxSpeciale1.png", isReal: false },
@@ -111,9 +148,13 @@ export default function QuizPage() {
 
       {!finished ? (
         <section className="quizSection">
-          <h2 className="quizQuestionTitle">Question {currentQuestion + 1} / {questions.length}</h2>
+          <h2 className="quizQuestionTitle">
+            Question {currentQuestion + 1} / {questions.length}
+          </h2>
           <p className="quizSubTitle">
-            {current.type === "normal" ? "Quelle est la vraie œuvre ?" : "Cette œuvre est-elle humaine ou générée par IA ?"}
+            {current.type === "normal"
+              ? "Quelle est la vraie œuvre ?"
+              : "Cette œuvre est-elle humaine ou générée par IA ?"}
           </p>
 
           {current.type === "normal" ? (
@@ -133,10 +174,24 @@ export default function QuizPage() {
             </div>
           ) : (
             <div className="specialImageContainer">
-              <img src={current.img} alt="Oeuvre spéciale" className="quizImage" />
+              <img
+                src={current.img}
+                alt="Oeuvre spéciale"
+                className="quizImage"
+              />
               <div className="specialButtons">
-                <button className="choiceButton" onClick={() => handleAnswer(current.isReal)}>Vraie œuvre</button>
-                <button className="choiceButton" onClick={() => handleAnswer(!current.isReal)}>Œuvre IA</button>
+                <button
+                  className="choiceButton"
+                  onClick={() => handleAnswer(current.isReal)}
+                >
+                  Vraie œuvre
+                </button>
+                <button
+                  className="choiceButton"
+                  onClick={() => handleAnswer(!current.isReal)}
+                >
+                  Œuvre IA
+                </button>
               </div>
             </div>
           )}
@@ -144,28 +199,50 @@ export default function QuizPage() {
           {answered && (
             <>
               <div className="feedback fade-in">
-                <div style={{ color: isCorrectAnswer ? "#22c55e" : "#ef4444", fontWeight: "bold", fontSize: "1.5rem", marginBottom: "1rem" }}>
-                  {isCorrectAnswer ? "✅ Bonne réponse !" : "❌ Mauvaise réponse."}
+                <div
+                  style={{
+                    color: isCorrectAnswer ? "#22c55e" : "#ef4444",
+                    fontWeight: "bold",
+                    fontSize: "1.5rem",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {isCorrectAnswer
+                    ? "✅ Bonne réponse !"
+                    : "❌ Mauvaise réponse."}
                 </div>
-                <strong>{feedbackType === "funfact" ? "FUN FACT :" : "ARTIPS :"}</strong> {feedback}
+                <strong>
+                  {feedbackType === "funfact" ? "FUN FACT :" : "ARTIPS :"}
+                </strong>{" "}
+                {feedback}
               </div>
               <div className="nextButtonContainer">
-                <button className="nextButton" onClick={nextQuestion}>➡️ Question suivante</button>
+                <button className="nextButton" onClick={nextQuestion}>
+                  ➡️ Question suivante
+                </button>
               </div>
             </>
           )}
         </section>
       ) : (
         <section className="resultSection">
-          <h2 className="resultTitle">Votre Score : {score} / {questions.length}</h2>
+          <h2 className="resultTitle">
+            Votre Score : {score} / {questions.length}
+          </h2>
           <p className="resultComment">
             {score <= 4 && "Ouch ! Tu peux progresser..."}
-            {score >= 5 && score <= 7 && "Pas mal ! Tu commences à faire la différence."}
-            {score >= 8 && score <= 9 && "Très bien joué ! Ton œil est presque infaillible."}
+            {score >= 5 &&
+              score <= 7 &&
+              "Pas mal ! Tu commences à faire la différence."}
+            {score >= 8 &&
+              score <= 9 &&
+              "Très bien joué ! Ton œil est presque infaillible."}
             {score === 10 && "Parfait ! Tu es un expert de l'art face à l'IA !"}
           </p>
           <div className="buttonsFinal">
-            <button className="startButton" onClick={restartQuiz}>🔄 Rejouer</button>
+            <button className="startButton" onClick={restartQuiz}>
+              🔄 Rejouer
+            </button>
             <Link href="/remerciements">
               <button className="startButton">🏁 Finir le Test</button>
             </Link>
@@ -174,7 +251,8 @@ export default function QuizPage() {
       )}
 
       <style jsx>{`
-        html, body {
+        html,
+        body {
           margin: 0;
           padding: 0;
           font-family: Arial, sans-serif;
@@ -204,7 +282,8 @@ export default function QuizPage() {
           flex-direction: column;
           align-items: center;
         }
-        .imagesContainer, .specialImageContainer {
+        .imagesContainer,
+        .specialImageContainer {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -318,8 +397,12 @@ export default function QuizPage() {
           text-align: center;
         }
         @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
         @media (max-width: 600px) {
           .quizImage {
@@ -337,10 +420,3 @@ export default function QuizPage() {
     </main>
   );
 }
-
-
-
-
-
-
-

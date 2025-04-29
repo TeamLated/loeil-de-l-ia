@@ -14,7 +14,10 @@ export default function Home() {
         const rect = card.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const cardCenter = rect.top + rect.height / 2;
-        if (cardCenter > windowHeight / 3 && cardCenter < (2 * windowHeight) / 3) {
+        if (
+          cardCenter > windowHeight / 3 &&
+          cardCenter < (2 * windowHeight) / 3
+        ) {
           card.style.transform = "scale(1.08)";
         } else {
           card.style.transform = "scale(1)";
@@ -27,7 +30,10 @@ export default function Home() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (!(e.target as HTMLElement).closest(".menu") && !(e.target as HTMLElement).closest(".menuOverlay")) {
+      if (
+        !(e.target as HTMLElement).closest(".menu") &&
+        !(e.target as HTMLElement).closest(".menuOverlay")
+      ) {
         setMenuOpen(false);
       }
     };
@@ -48,9 +54,24 @@ export default function Home() {
           {menuOpen && (
             <nav className="menuOverlay">
               <ul>
-                <li><Link href="/" onClick={() => setMenuOpen(false)}>Accueil</Link></li>
-                <li><Link href="/remerciements" onClick={() => setMenuOpen(false)}>Remerciements</Link></li>
-                <li><Link href="/point-presse" onClick={() => setMenuOpen(false)}>Point Presse</Link></li>
+                <li>
+                  <Link href="/" onClick={() => setMenuOpen(false)}>
+                    Accueil
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/remerciements"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Remerciements
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/point-presse" onClick={() => setMenuOpen(false)}>
+                    Point Presse
+                  </Link>
+                </li>
               </ul>
             </nav>
           )}
@@ -61,7 +82,10 @@ export default function Home() {
       <section className="hero">
         <img src="/images/logo.png" alt="Logo Team Lated" className="logo" />
         <h1>L'Œil de l'IA</h1>
-        <p>Testez votre capacité à reconnaître une œuvre humaine face à une création d'intelligence artificielle.</p>
+        <p>
+          Testez votre capacité à reconnaître une œuvre humaine face à une
+          création d'intelligence artificielle.
+        </p>
         <Link href="/quiz">
           <button className="startButton">Commencer le Quiz</button>
         </Link>
@@ -73,59 +97,88 @@ export default function Home() {
         <h2 className="bigTitle">Pourquoi ce projet ?</h2>
         <div className="cards">
           {/* Card 1 */}
-          <div ref={(el) => el && (cardsRef.current[0] = el)} className="card purple">
+          <div
+            ref={(el) => el && (cardsRef.current[0] = el)}
+            className="card purple"
+          >
             <h3>Notre équipe</h3>
             <p>
-              Nous sommes une équipe d'étudiants passionnés par l'art, la création visuelle et les technologies émergentes.
-              Si nos parcours personnels sont différents, nous partageons tous une même sensibilité pour l'expression artistique
-              et un intérêt profond pour l'impact de l'intelligence artificielle sur notre société.
-              Face aux innovations impressionnantes permises par les outils génératifs, nous avons ressenti le besoin de questionner
-              la place de l'humain dans la création artistique. Ensemble, nous avons construit ce projet pour sensibiliser le public
-              à la richesse unique de la création humaine, et pour inviter chacun à s'interroger sur ce qui différencie une œuvre née
-              d'une main humaine de celle produite par un algorithme.
+              Nous sommes une équipe d'étudiants passionnés par l'art, la
+              création visuelle et les technologies émergentes. Si nos parcours
+              personnels sont différents, nous partageons tous une même
+              sensibilité pour l'expression artistique et un intérêt profond
+              pour l'impact de l'intelligence artificielle sur notre société.
+              Face aux innovations impressionnantes permises par les outils
+              génératifs, nous avons ressenti le besoin de questionner la place
+              de l'humain dans la création artistique. Ensemble, nous avons
+              construit ce projet pour sensibiliser le public à la richesse
+              unique de la création humaine, et pour inviter chacun à
+              s'interroger sur ce qui différencie une œuvre née d'une main
+              humaine de celle produite par un algorithme.
             </p>
           </div>
 
           {/* Card 2 */}
-          <div ref={(el) => el && (cardsRef.current[1] = el)} className="card green">
+          <div
+            ref={(el) => el && (cardsRef.current[1] = el)}
+            className="card green"
+          >
             <h3>Le défi</h3>
             <p>
-              L'intelligence artificielle est désormais capable de générer des œuvres d'art saisissantes en quelques secondes.
-              Tableaux, dessins, illustrations numériques : tout semble à portée d'algorithme.
-              Ce jeu d'observation n'est pas qu'un simple divertissement : il invite chacun à s'interroger sur les critères
-              qui rendent une œuvre profondément humaine.
+              L'intelligence artificielle est désormais capable de générer des
+              œuvres d'art saisissantes en quelques secondes. Tableaux, dessins,
+              illustrations numériques : tout semble à portée d'algorithme. Ce
+              jeu d'observation n'est pas qu'un simple divertissement : il
+              invite chacun à s'interroger sur les critères qui rendent une
+              œuvre profondément humaine.
             </p>
           </div>
 
           {/* Card 3 */}
-          <div ref={(el) => el && (cardsRef.current[2] = el)} className="card blue">
+          <div
+            ref={(el) => el && (cardsRef.current[2] = el)}
+            className="card blue"
+          >
             <h3>Quelques chiffres</h3>
             <p>
-              60 % des internautes avouent avoir du mal à distinguer une œuvre d'IA d'une œuvre humaine.
-              2 minutes suffisent en moyenne à une IA pour générer un tableau complexe.
-              +300 œuvres analysées pour construire notre expérience.
-              5 styles artistiques explorés : impressionnisme, art abstrait, réalisme, surréalisme, art contemporain.
+              60 % des internautes avouent avoir du mal à distinguer une œuvre
+              d'IA d'une œuvre humaine. 2 minutes suffisent en moyenne à une IA
+              pour générer un tableau complexe. +300 œuvres analysées pour
+              construire notre expérience. 5 styles artistiques explorés :
+              impressionnisme, art abstrait, réalisme, surréalisme, art
+              contemporain.
             </p>
           </div>
 
           {/* Card 4 */}
-          <div ref={(el) => el && (cardsRef.current[3] = el)} className="card red">
+          <div
+            ref={(el) => el && (cardsRef.current[3] = el)}
+            className="card red"
+          >
             <h3>Notre mission</h3>
             <p>
-              Notre mission est double : sensibiliser et valoriser.
-              Nous voulons avant tout sensibiliser aux bouleversements que l'IA provoque dans le monde artistique.
-              Nous souhaitons aussi valoriser la démarche des artistes humains, leur capacité unique à transmettre
-              des émotions, à porter des messages et à ouvrir des débats par leur travail.
+              Notre mission est double : sensibiliser et valoriser. Nous voulons
+              avant tout sensibiliser aux bouleversements que l'IA provoque dans
+              le monde artistique. Nous souhaitons aussi valoriser la démarche
+              des artistes humains, leur capacité unique à transmettre des
+              émotions, à porter des messages et à ouvrir des débats par leur
+              travail.
             </p>
           </div>
 
           {/* Card 5 */}
-          <div ref={(el) => el && (cardsRef.current[4] = el)} className="card yellow">
+          <div
+            ref={(el) => el && (cardsRef.current[4] = el)}
+            className="card yellow"
+          >
             <h3>Vous</h3>
             <p>
-              Vous êtes au centre de notre projet. Que vous soyez amateur d'art, curieux, étudiant, artiste ou passionné
-              de nouvelles technologies, votre regard et vos choix alimentent la réflexion collective sur le rôle de l'humain
-              face aux créations IA. En participant, vous devenez acteur d'un questionnement essentiel pour l'avenir de l'art.
+              Vous êtes au centre de notre projet. Que vous soyez amateur d'art,
+              curieux, étudiant, artiste ou passionné de nouvelles technologies,
+              votre regard et vos choix alimentent la réflexion collective sur
+              le rôle de l'humain face aux créations IA. En participant, vous
+              devenez acteur d'un questionnement essentiel pour l'avenir de
+              l'art.
             </p>
           </div>
         </div>
@@ -133,7 +186,8 @@ export default function Home() {
 
       {/* CSS STYLE */}
       <style jsx>{`
-        html, body {
+        html,
+        body {
           margin: 0;
           padding: 0;
           background: #6b21a8;
@@ -159,7 +213,14 @@ export default function Home() {
           margin: 5px 0;
         }
         .menuOverlay {
-          background: linear-gradient(135deg, #9333ea, #22c55e, #2563eb, #ef4444, #facc15);
+          background: linear-gradient(
+            135deg,
+            #9333ea,
+            #22c55e,
+            #2563eb,
+            #ef4444,
+            #facc15
+          );
           padding: 1rem;
           border-radius: 12px;
           position: absolute;
@@ -217,8 +278,13 @@ export default function Home() {
           animation: bounce 2s infinite;
         }
         @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(10px); }
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(10px);
+          }
         }
         .explanation {
           padding: 5rem 2rem;
@@ -249,11 +315,22 @@ export default function Home() {
           font-size: 2.5rem;
           margin-bottom: 1rem;
         }
-        .purple { background-color: #9333ea; }
-        .green { background-color: #22c55e; }
-        .blue { background-color: #2563eb; }
-        .red { background-color: #ef4444; }
-        .yellow { background-color: #facc15; color: #1e1b4b; }
+        .purple {
+          background-color: #9333ea;
+        }
+        .green {
+          background-color: #22c55e;
+        }
+        .blue {
+          background-color: #2563eb;
+        }
+        .red {
+          background-color: #ef4444;
+        }
+        .yellow {
+          background-color: #facc15;
+          color: #1e1b4b;
+        }
 
         @media screen and (max-width: 768px) {
           .card {
@@ -276,6 +353,3 @@ export default function Home() {
     </main>
   );
 }
-
-
-

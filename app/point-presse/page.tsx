@@ -13,7 +13,10 @@ export default function PressPage() {
         const rect = card.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const cardCenter = rect.top + rect.height / 2;
-        if (cardCenter > windowHeight / 4 && cardCenter < (3 * windowHeight) / 4) {
+        if (
+          cardCenter > windowHeight / 4 &&
+          cardCenter < (3 * windowHeight) / 4
+        ) {
           card.style.transform = "scale(1.05)";
         } else {
           card.style.transform = "scale(1)";
@@ -27,25 +30,29 @@ export default function PressPage() {
   const articles = [
     {
       title: "Comment l'IA change le monde de l'art",
-      description: "L'impact des intelligences artificielles dans les galeries d'art.",
+      description:
+        "L'impact des intelligences artificielles dans les galeries d'art.",
       image: "/images/article1.jpg",
       url: "https://www.lemonde.fr/pixels/article/2022/10/05/intelligence-artificielle-et-creation-artistique-questions-d-ethique-et-de-droit_6144331_4408996.html",
     },
     {
       title: "Face à l'IA, les artistes ripostent sur tous les fronts",
-      description: "Les artistes s'organisent pour faire face à l'essor de l'IA dans l'art.",
+      description:
+        "Les artistes s'organisent pour faire face à l'essor de l'IA dans l'art.",
       image: "/images/article2.jpg",
       url: "https://www.lemonde.fr/pixels/article/2025/02/09/face-a-l-ia-les-artistes-ripostent-sur-tous-les-fronts_6538601_4408996.html",
     },
     {
       title: "La folle année 2023 de l'intelligence artificielle",
-      description: "Retour sur une année marquée par des avancées majeures en IA.",
+      description:
+        "Retour sur une année marquée par des avancées majeures en IA.",
       image: "/images/article3.jpg",
       url: "https://www.france24.com/fr/%C3%A9co-tech/20231230-la-folle-ann%C3%A9e-2023-de-l-intelligence-artificielle",
     },
     {
       title: "PhantasIA #1 | Le magazine de la création IA",
-      description: "Exploration du potentiel créatif de l'IA dans l'art contemporain.",
+      description:
+        "Exploration du potentiel créatif de l'IA dans l'art contemporain.",
       image: "/images/article4.jpg",
       url: "https://www.youtube.com/watch?v=hTeYDUDH1uY",
     },
@@ -101,7 +108,11 @@ export default function PressPage() {
               className="articleCard"
               ref={(el) => el && (cardsRef.current[index] = el)}
             >
-              <img src={article.image} alt={article.title} className="articleImage" />
+              <img
+                src={article.image}
+                alt={article.title}
+                className="articleImage"
+              />
               <h2>{article.title}</h2>
               <p>{article.description}</p>
               <span className="source">Source : Voir article</span>
@@ -111,7 +122,8 @@ export default function PressPage() {
       </section>
 
       <style jsx>{`
-        html, body {
+        html,
+        body {
           margin: 0;
           padding: 0;
           background-color: #8b5cf6;
@@ -201,6 +213,3 @@ export default function PressPage() {
     </main>
   );
 }
-
-
-
