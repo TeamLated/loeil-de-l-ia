@@ -87,7 +87,9 @@ export default function ThanksPage() {
           <div
             key={index}
             className="thanksBlock"
-            ref={(el) => (sectionsRef.current[index] = el!)}
+            ref={(el) => {
+              if (el) sectionsRef.current[index] = el as HTMLDivElement;
+            }}
           >
             <h2>{section.title}</h2>
             {section.content.map((line, i) => (

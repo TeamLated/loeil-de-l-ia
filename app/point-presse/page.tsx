@@ -107,7 +107,9 @@ export default function PressPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="articleCard"
-              ref={(el) => (cardsRef.current[index] = el!)}
+              ref={(el) => {
+                if (el) cardsRef.current[index] = el as HTMLAnchorElement;
+              }}
             >
               <img
                 src={article.image}

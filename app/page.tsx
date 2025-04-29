@@ -105,7 +105,9 @@ export default function Home() {
           ].map(({ title, className, index }) => (
             <div
               key={index}
-              ref={(el) => el && (cardsRef.current[index] = el)}
+              ref={(el) => {
+                if (el) cardsRef.current[index] = el as HTMLDivElement;
+              }}
               className={`card ${className}`}
             >
               <h3>{title}</h3>
