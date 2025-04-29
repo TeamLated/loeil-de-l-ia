@@ -30,60 +30,56 @@ export default function PressPage() {
 
   const articles = [
     {
-      title: "Comment l'IA change le monde de l'art",
-      description:
-        "L'impact des intelligences artificielles dans les galeries d'art.",
+      title: `Comment l'IA change le monde de l'art`,
+      description: `L'impact des intelligences artificielles dans les galeries d'art.`,
       image: "/images/article1.jpg",
       url: "https://www.lemonde.fr/pixels/article/2022/10/05/intelligence-artificielle-et-creation-artistique-questions-d-ethique-et-de-droit_6144331_4408996.html",
     },
     {
-      title: "Face à l'IA, les artistes ripostent sur tous les fronts",
-      description:
-        "Les artistes s'organisent pour faire face à l'essor de l'IA dans l'art.",
+      title: `Face à l'IA, les artistes ripostent sur tous les fronts`,
+      description: `Les artistes s'organisent pour faire face à l'essor de l'IA dans l'art.`,
       image: "/images/article2.jpg",
       url: "https://www.lemonde.fr/pixels/article/2025/02/09/face-a-l-ia-les-artistes-ripostent-sur-tous-les-fronts_6538601_4408996.html",
     },
     {
-      title: "La folle année 2023 de l'intelligence artificielle",
-      description:
-        "Retour sur une année marquée par des avancées majeures en IA.",
+      title: `La folle année 2023 de l'intelligence artificielle`,
+      description: `Retour sur une année marquée par des avancées majeures en IA.`,
       image: "/images/article3.jpg",
       url: "https://www.france24.com/fr/%C3%A9co-tech/20231230-la-folle-ann%C3%A9e-2023-de-l-intelligence-artificielle",
     },
     {
-      title: "PhantasIA #1 | Le magazine de la création IA",
-      description:
-        "Exploration du potentiel créatif de l'IA dans l'art contemporain.",
+      title: `PhantasIA #1 | Le magazine de la création IA`,
+      description: `Exploration du potentiel créatif de l'IA dans l'art contemporain.`,
       image: "/images/article4.jpg",
       url: "https://www.youtube.com/watch?v=hTeYDUDH1uY",
     },
     {
-      title: "Distinguer l'art humain de l'art IA",
-      description: "Les critères visuels pour reconnaître une œuvre IA.",
+      title: `Distinguer l'art humain de l'art IA`,
+      description: `Les critères visuels pour reconnaître une œuvre IA.`,
       image: "/images/article5.jpg",
       url: "https://theconversation.com/comment-distinguer-une-oeuvre-creee-par-une-ia-de-celle-dun-humain-201523",
     },
     {
-      title: "Quand l'IA devient artiste : Révolution ou menace",
-      description: "Réflexion sur l'impact de l'IA sur la création artistique.",
+      title: `Quand l'IA devient artiste : Révolution ou menace`,
+      description: `Réflexion sur l'impact de l'IA sur la création artistique.`,
       image: "/images/article6.jpg",
       url: "https://sn.notrecontinent.com/2024/11/26/quand-lia-devient-artiste-revolution-ou-menace-pour-lart-humain/",
     },
     {
-      title: "Quand une IA peint une œuvre : la place de l'artiste",
-      description: "Débat sur l'auteur et l'authenticité face à l'IA.",
+      title: `Quand une IA peint une œuvre : la place de l'artiste`,
+      description: `Débat sur l'auteur et l'authenticité face à l'IA.`,
       image: "/images/article7.jpg",
       url: "https://www.numerama.com/pop-culture/438991-quand-une-ia-peint-une-oeuvre-quelle-est-la-place-de-lartiste.html",
     },
     {
-      title: "Propriété intellectuelle et œuvres générées",
-      description: "Problèmes juridiques autour des créations IA.",
+      title: `Propriété intellectuelle et œuvres générées`,
+      description: `Problèmes juridiques autour des créations IA.`,
       image: "/images/article8.jpg",
       url: "https://www.lemonde.fr/idees/article/2024/11/05/propriete-intellectuelle-la-chaine-de-valeur-de-la-contrefacon-se-trouve-en-dehors-de-l-union-europeenne_6376688_3232.html",
     },
     {
-      title: "Créer de l'art avec l'IA : un défi humain",
-      description: "Coexistence entre artistes humains et IA.",
+      title: `Créer de l'art avec l'IA : un défi humain`,
+      description: `Coexistence entre artistes humains et IA.`,
       image: "/images/article9.jpg",
       url: "https://www.cbc.ca/news/canada/first-person-ai-art-1.7432023",
     },

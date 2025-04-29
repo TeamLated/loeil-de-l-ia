@@ -81,10 +81,9 @@ export default function Home() {
       {/* SECTION HERO */}
       <section className="hero">
         <img src="/images/logo.png" alt="Logo Team Lated" className="logo" />
-        <h1>L'Œil de l'IA</h1>
+        <h1>L&apos;Œil de l&apos;IA</h1>
         <p>
-          Testez votre capacité à reconnaître une œuvre humaine face à une
-          création d'intelligence artificielle.
+          {`Testez votre capacité à reconnaître une œuvre humaine face à une création d'intelligence artificielle.`}
         </p>
         <Link href="/quiz">
           <button className="startButton">Commencer le Quiz</button>
@@ -113,21 +112,22 @@ export default function Home() {
               <h3>{title}</h3>
               <p>
                 {index === 0 &&
-                  "Nous sommes une équipe d'étudiants passionnés par l'art, la création visuelle et les technologies émergentes. Si nos parcours personnels sont différents, nous partageons tous une même sensibilité pour l'expression artistique et un intérêt profond pour l'impact de l'intelligence artificielle sur notre société. Face aux innovations impressionnantes permises par les outils génératifs, nous avons ressenti le besoin de questionner la place de l'humain dans la création artistique. Ensemble, nous avons construit ce projet pour sensibiliser le public à la richesse unique de la création humaine, et pour inviter chacun à s'interroger sur ce qui différencie une œuvre née d'une main humaine de celle produite par un algorithme."}
+                  `Nous sommes une équipe d'étudiants passionnés par l'art, la création visuelle et les technologies émergentes. Si nos parcours personnels sont différents, nous partageons tous une même sensibilité pour l'expression artistique et un intérêt profond pour l'impact de l'intelligence artificielle sur notre société. Face aux innovations impressionnantes permises par les outils génératifs, nous avons ressenti le besoin de questionner la place de l'humain dans la création artistique. Ensemble, nous avons construit ce projet pour sensibiliser le public à la richesse unique de la création humaine, et pour inviter chacun à s'interroger sur ce qui différencie une œuvre née d'une main humaine de celle produite par un algorithme.`}
                 {index === 1 &&
-                  "L'intelligence artificielle est désormais capable de générer des œuvres d'art saisissantes en quelques secondes. Tableaux, dessins, illustrations numériques : tout semble à portée d'algorithme. Ce jeu d'observation n'est pas qu'un simple divertissement : il invite chacun à s'interroger sur les critères qui rendent une œuvre profondément humaine."}
+                  `L'intelligence artificielle est désormais capable de générer des œuvres d'art saisissantes en quelques secondes. Tableaux, dessins, illustrations numériques : tout semble à portée d'algorithme. Ce jeu d'observation n'est pas qu'un simple divertissement : il invite chacun à s'interroger sur les critères qui rendent une œuvre profondément humaine.`}
                 {index === 2 &&
-                  "60 % des internautes avouent avoir du mal à distinguer une œuvre d'IA d'une œuvre humaine. 2 minutes suffisent en moyenne à une IA pour générer un tableau complexe. +300 œuvres analysées pour construire notre expérience. 5 styles artistiques explorés : impressionnisme, art abstrait, réalisme, surréalisme, art contemporain."}
+                  `60 % des internautes avouent avoir du mal à distinguer une œuvre d'IA d'une œuvre humaine. 2 minutes suffisent en moyenne à une IA pour générer un tableau complexe. +300 œuvres analysées pour construire notre expérience. 5 styles artistiques explorés : impressionnisme, art abstrait, réalisme, surréalisme, art contemporain.`}
                 {index === 3 &&
-                  "Notre mission est double : sensibiliser et valoriser. Nous voulons avant tout sensibiliser aux bouleversements que l'IA provoque dans le monde artistique. Nous souhaitons aussi valoriser la démarche des artistes humains, leur capacité unique à transmettre des émotions, à porter des messages et à ouvrir des débats par leur travail."}
+                  `Notre mission est double : sensibiliser et valoriser. Nous voulons avant tout sensibiliser aux bouleversements que l'IA provoque dans le monde artistique. Nous souhaitons aussi valoriser la démarche des artistes humains, leur capacité unique à transmettre des émotions, à porter des messages et à ouvrir des débats par leur travail.`}
                 {index === 4 &&
-                  "Vous êtes au centre de notre projet. Que vous soyez amateur d'art, curieux, étudiant, artiste ou passionné de nouvelles technologies, votre regard et vos choix alimentent la réflexion collective sur le rôle de l'humain face aux créations IA. En participant, vous devenez acteur d'un questionnement essentiel pour l'avenir de l'art."}
+                  `Vous êtes au centre de notre projet. Que vous soyez amateur d'art, curieux, étudiant, artiste ou passionné de nouvelles technologies, votre regard et vos choix alimentent la réflexion collective sur le rôle de l'humain face aux créations IA. En participant, vous devenez acteur d'un questionnement essentiel pour l'avenir de l'art.`}
               </p>
             </div>
           ))}
         </div>
       </section>
 
+      {/* STYLE CSS */}
       <style jsx>{`
         html,
         body {

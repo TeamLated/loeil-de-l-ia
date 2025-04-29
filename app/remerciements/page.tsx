@@ -43,44 +43,44 @@ export default function ThanksPage() {
           {
             title: "Artistes",
             content: [
-              "Nous tenons à remercier chaleureusement :",
-              "N.L. — Fleurs, photographie",
-              "Amandine B. — Petite Fusée, illustration numérique, avril 2025",
-              "Alexandre S. — Kuroo (personnage de Haikyuu), illustration",
-              "Martine GJINI — Le marcheur (Contact : gjinimartine@gmail.com)",
-              "Amandine B. — Mer de la Côte d'Azur, photographie, novembre 2024",
-              "Alexandre S. — Suguru (personnage de Jujutsu Kaisen), illustration",
-              "Durand Théo — Cherry, illustration numérique, avril 2025",
-              "Martine GJINI — Nu",
+              `Nous tenons à remercier chaleureusement :`,
+              `N.L. — Fleurs, photographie`,
+              `Amandine B. — Petite Fusée, illustration numérique, avril 2025`,
+              `Alexandre S. — Kuroo (personnage de Haikyuu), illustration`,
+              `Martine GJINI — Le marcheur (Contact : gjinimartine@gmail.com)`,
+              `Amandine B. — Mer de la Côte d'Azur, photographie, novembre 2024`,
+              `Alexandre S. — Suguru (personnage de Jujutsu Kaisen), illustration`,
+              `Durand Théo — Cherry, illustration numérique, avril 2025`,
+              `Martine GJINI — Nu`,
             ],
           },
           {
             title: "Encadrement",
             content: [
-              "Merci à Madame Eynaud, professeure de projet entrepreneurial à l'IAE de Saint-Étienne,",
-              "ainsi qu'à Marie-Charlotte Julia, notre tutrice, pour leurs conseils et leur accompagnement précieux.",
+              `Merci à Madame Eynaud, professeure de projet entrepreneurial à l'IAE de Saint-Étienne,`,
+              `ainsi qu'à Marie-Charlotte Julia, notre tutrice, pour leurs conseils et leur accompagnement précieux.`,
             ],
           },
           {
             title: "Participants",
             content: [
-              "Merci à tous les artistes et étudiants interviewés,",
-              "aux licences arts de Saint-Étienne pour leur aide,",
-              "et à tous ceux qui ont répondu à notre questionnaire.",
+              `Merci à tous les artistes et étudiants interviewés,`,
+              `aux licences arts de Saint-Étienne pour leur aide,`,
+              `et à tous ceux qui ont répondu à notre questionnaire.`,
             ],
           },
           {
             title: "Réflexion sur l'Art",
             content: [
-              "La définition officielle du Petit Robert de l'Art est : \"Moyen d'obtenir un résultat (par l'effet d'aptitudes naturelles)\" ou \"Ensemble de connaissances et de règles d'action, dans un domaine particulier\".",
-              "Pourtant, l'art est bien plus vaste : l'esthétique, le laid, qui peut être artiste ? L'art dépend de chacun : des goûts, de l'âge, de l'éducation... autant de réponses que d'individus.",
+              `La définition officielle du Petit Robert de l'Art est : "Moyen d'obtenir un résultat (par l'effet d'aptitudes naturelles)" ou "Ensemble de connaissances et de règles d'action, dans un domaine particulier".`,
+              `Pourtant, l'art est bien plus vaste : l'esthétique, le laid, qui peut être artiste ? L'art dépend de chacun : des goûts, de l'âge, de l'éducation... autant de réponses que d'individus.`,
             ],
           },
           {
             title: "Mot de fin",
             content: [
-              "Aujourd'hui, en faisant ce test, vous ne trouverez pas une vérité absolue sur la place de l'IA dans l'art.",
-              "Vous trouverez des pistes, des critiques, des ouvertures. À vous de juger. Mais surtout : ne vous fermez pas au reste...",
+              `Aujourd'hui, en faisant ce test, vous ne trouverez pas une vérité absolue sur la place de l'IA dans l'art.`,
+              `Vous trouverez des pistes, des critiques, des ouvertures. À vous de juger. Mais surtout : ne vous fermez pas au reste...`,
             ],
           },
         ].map((section, index) => (
